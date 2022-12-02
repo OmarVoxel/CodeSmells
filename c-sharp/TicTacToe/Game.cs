@@ -7,16 +7,16 @@ namespace TicTacToe
         private char _lastSymbol = ' ';
         private Board _board = new Board();
         
-        public void Play(char symbol, int x, int y)
+        public void Play(char symbol, int coordinateX, int coordinateY)
         {
-            CheckRules(symbol, x, y);
+            CheckRules(symbol, coordinateX, coordinateY);
 
             // update game state
             _lastSymbol = symbol;
-            _board.AddTileAt(symbol, x, y);
+            _board.AddTileAt(symbol, coordinateX, coordinateY);
         }
 
-        private void CheckRules(char symbol, int x, int y)
+        private void CheckRules(char symbol, int coordinateX, int coordinateY)
         {
             //if first move
             if (_lastSymbol == ' ')
@@ -33,7 +33,7 @@ namespace TicTacToe
                 throw new Exception("Invalid next player");
             }
             //if not first move but play on an already played tile
-            else if (_board.TileAt(x, y).Symbol != ' ')
+            else if (_board.TileAt(coordinateX, coordinateY).Symbol != ' ')
             {
                 throw new Exception("Invalid position");
             }
