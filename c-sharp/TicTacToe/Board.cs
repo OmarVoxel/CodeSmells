@@ -14,14 +14,14 @@ namespace TicTacToe
 
         private void InitializeBoard()
         {
-            for (int i = 0; i < 3; i++)
+            for (int matrixM = 0; matrixM < 3; matrixM++)
             {
-                for (int j = 0; j < 3; j++)
+                for (int matrixN = 0; matrixN < 3; matrixN++)
                 {
                     _plays.Add(new Tile
                     {
-                        CoordinateX = i,
-                        CoordinateY = j,
+                        CoordinateX = matrixM,
+                        CoordinateY = matrixN,
                         Symbol = ' '
                     });
                 }
