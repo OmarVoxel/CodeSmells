@@ -5,7 +5,7 @@ namespace TicTacToe
 {
     public class Board
     {
-        private List<Tile> _plays = new();
+        private readonly List<Tile> _plays = new();
 
         public Board()
         {
