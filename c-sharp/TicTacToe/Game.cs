@@ -19,20 +19,20 @@ namespace TicTacToe
             if(IsAnInvalidFirstMove(player.Symbol))
               throw new Exception("Invalid first player");
 
-            if(PlayerRepeat(player.Symbol))
+            if(IsPlayerRepeated(player.Symbol))
                 throw new Exception("Invalid next player");
             
-            if(TileIsNotEmpty(player.CoordinateX, player.CoordinateY))
+            if(IsTileIsNotEmpty(player.CoordinateX, player.CoordinateY))
                 throw new Exception("Invalid position");
         }
 
-        private bool TileIsNotEmpty(int coordinateX, int coordinateY)
+        private bool IsTileIsNotEmpty(int coordinateX, int coordinateY)
             => _board.TileAt(coordinateX, coordinateY).Symbol != ' ';
         
         private bool IsAnInvalidFirstMove(char symbol) 
             => _lastSymbol == ' ' && symbol == 'O';
         
-        private bool PlayerRepeat(char symbol)
+        private bool IsPlayerRepeated(char symbol)
             => symbol == _lastSymbol;
         
         public char Winner()
