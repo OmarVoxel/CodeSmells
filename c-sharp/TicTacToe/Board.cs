@@ -28,16 +28,12 @@ namespace TicTacToe
             }
         }
 
-        public Tile TileAt(int coordinateX, int coordinateY)
-        {
-            return _plays.Single(tile => tile.CoordinateX == coordinateX && tile.CoordinateY == coordinateY);
-        }
+        public Tile TileAt(int coordinateX, int coordinateY) 
+            => _plays.Single(tile => tile.CoordinateX == coordinateX && tile.CoordinateY == coordinateY);
 
-        public void AddTileAt(char symbol, int coordinateX, int coordinateY)
-        {
-            _plays.Single(tile => tile.CoordinateX == coordinateX && tile.CoordinateY == coordinateY).Symbol = symbol;
-        }
-        
+        public void AddTileAt(Player player) 
+            => _plays.Single(tile => tile.CoordinateX == player.CoordinateX && tile.CoordinateY == player.CoordinateY).Symbol = player.Symbol;
+
         public char GetWinner()
         {
             if (FirstRowHasAWinner())

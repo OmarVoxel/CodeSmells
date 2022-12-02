@@ -7,22 +7,22 @@ namespace TicTacToe
         private char _lastSymbol = ' ';
         private readonly Board _board = new();
         
-        public void Play(char symbol, int coordinateX, int coordinateY)
+        public void Play(Player player)
         {
-            CheckRules(symbol, coordinateX, coordinateY);
-            _lastSymbol = symbol;
-            _board.AddTileAt(symbol, coordinateX, coordinateY);
+            CheckRules(player);
+            _lastSymbol = player.Symbol;
+            _board.AddTileAt(player);
         }
         
-        private void CheckRules(char symbol, int coordinateX, int coordinateY)
+        private void CheckRules(Player player)
         {
-            if(IsAnInvalidFirstMove(symbol))
+            if(IsAnInvalidFirstMove(player.Symbol))
               throw new Exception("Invalid first player");
 
-            if(PlayerRepeat(symbol))
+            if(PlayerRepeat(player.Symbol))
                 throw new Exception("Invalid next player");
             
-            if(TileIsNotEmpty(coordinateX, coordinateY))
+            if(TileIsNotEmpty(player.CoordinateX, player.CoordinateY))
                 throw new Exception("Invalid position");
         }
 
