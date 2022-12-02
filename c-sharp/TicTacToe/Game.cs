@@ -9,15 +9,24 @@ namespace TicTacToe
         
         public void Play(char symbol, int x, int y)
         {
+            CheckRules(symbol, x, y);
+
+            // update game state
+            _lastSymbol = symbol;
+            _board.AddTileAt(symbol, x, y);
+        }
+
+        private void CheckRules(char symbol, int x, int y)
+        {
             //if first move
-            if(_lastSymbol == ' ')
+            if (_lastSymbol == ' ')
             {
                 //if player is X
-                if(symbol == 'O')
+                if (symbol == 'O')
                 {
                     throw new Exception("Invalid first player");
                 }
-            } 
+            }
             //if not first move but player repeated
             else if (symbol == _lastSymbol)
             {
@@ -28,10 +37,6 @@ namespace TicTacToe
             {
                 throw new Exception("Invalid position");
             }
-
-            // update game state
-            _lastSymbol = symbol;
-            _board.AddTileAt(symbol, x, y);
         }
 
         public char Winner()
