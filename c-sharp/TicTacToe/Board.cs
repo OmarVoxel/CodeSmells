@@ -18,7 +18,12 @@ namespace TicTacToe
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    _plays.Add(new Tile {CoordinateX = i, CoordinateY = j, Symbol = ' '});
+                    _plays.Add(new Tile
+                    {
+                        CoordinateX = i, 
+                        CoordinateY = j, 
+                        Symbol = ' '
+                    });
                 }
             }
         }
