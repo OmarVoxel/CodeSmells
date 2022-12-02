@@ -28,9 +28,9 @@ namespace TicTacToe
             return _plays.Single(tile => tile.CoordinateX == coordinateX && tile.CoordinateY == coordinateY);
         }
 
-        public void AddTileAt(char symbol, int x, int y)
+        public void AddTileAt(char symbol, int coordinateX, int coordinateY)
         {
-            _plays.Single(tile => tile.CoordinateX == x && tile.CoordinateY == y).Symbol = symbol;
+            _plays.Single(tile => tile.CoordinateX == coordinateX && tile.CoordinateY == coordinateY).Symbol = symbol;
         }
     }
 }
