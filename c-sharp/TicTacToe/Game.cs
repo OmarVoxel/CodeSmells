@@ -37,8 +37,5 @@ namespace TicTacToe
         
         public char Winner()
             => _board.GetWinner();
-        
-        private char GetSymbol(int coordinateX, int coordinateY)
-            => _board.TileAt(coordinateX, coordinateY).Symbol;
     }
 }
