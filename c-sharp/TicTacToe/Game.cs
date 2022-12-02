@@ -15,30 +15,28 @@ namespace TicTacToe
             _lastSymbol = symbol;
             _board.AddTileAt(symbol, coordinateX, coordinateY);
         }
-
+        
         private void CheckRules(char symbol, int coordinateX, int coordinateY)
         {
-            //if first move
-            if (_lastSymbol == ' ')
-            {
-                //if player is X
-                if (symbol == 'O')
-                {
-                    throw new Exception("Invalid first player");
-                }
-            }
-            //if not first move but player repeated
-            else if (symbol == _lastSymbol)
-            {
+            if(IsAnInvalidFirstMove(symbol))
+              throw new Exception("Invalid first player");
+
+            if(PlayerRepeat(symbol))
                 throw new Exception("Invalid next player");
-            }
-            //if not first move but play on an already played tile
-            else if (_board.TileAt(coordinateX, coordinateY).Symbol != ' ')
-            {
+            
+            if(TileIsNotEmpty(symbol, coordinateX, coordinateY))
                 throw new Exception("Invalid position");
-            }
         }
 
+        private bool TileIsNotEmpty(char symbol, int coordinateX, int coordinateY)
+            => _board.TileAt(coordinateX, coordinateY).Symbol != ' ';
+        
+        private bool IsAnInvalidFirstMove(char symbol) 
+            => _lastSymbol == ' ' && symbol == 'O';
+        
+        private bool PlayerRepeat(char symbol)
+            => symbol == _lastSymbol;
+        
         public char Winner()
         {   //if the positions in first row are taken
             if(_board.TileAt(0, 0).Symbol != ' ' &&
