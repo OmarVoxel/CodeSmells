@@ -85,7 +85,6 @@ namespace TicTacToe
                 TileAt(2, 1).Symbol != ' ' &&
                 TileAt(2, 2).Symbol != ' ')
             {
-                //if middle row is full with same symbol
                 return TileAt(2, 0).Symbol ==
                        TileAt(2, 1).Symbol &&
                        TileAt(2, 2).Symbol ==
