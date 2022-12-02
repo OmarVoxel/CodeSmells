@@ -18,26 +18,26 @@ namespace TicTacToe
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    _plays.Add(new Tile {CoordenateX = i, CoordenateY = j, Symbol = ' '});
+                    _plays.Add(new Tile {CoordinateX = i, CoordinateY = j, Symbol = ' '});
                 }
             }
         }
 
-        public Tile TileAt(int x, int y)
+        public Tile TileAt(int coordinateX, int coordinateY)
         {
-            return _plays.Single(tile => tile.CoordenateX == x && tile.CoordenateY == y);
+            return _plays.Single(tile => tile.CoordinateX == coordinateX && tile.CoordinateY == coordinateY);
         }
 
         public void AddTileAt(char symbol, int x, int y)
         {
             var newTile = new Tile
             {
-                CoordenateX = x,
-                CoordenateY = y,
+                CoordinateX = x,
+                CoordinateY = y,
                 Symbol = symbol
             };
 
-            _plays.Single(tile => tile.CoordenateX == x && tile.CoordenateY == y).Symbol = symbol;
+            _plays.Single(tile => tile.CoordinateX == x && tile.CoordinateY == y).Symbol = symbol;
         }
     }
 }
